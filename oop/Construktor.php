@@ -16,8 +16,8 @@ class produk{
        // return $this->judul . ', ' . $this-> penulis;
     }
 }
-$produk1 = new produk("naruto", "masashi kishimoto","republik", "10000");
-$produk2 = new produk("Faisal", "coding", "Erlangga", "1000000");
+$produk1 = new produk("naruto", "masashi kishimoto","republik", 10000);
+$produk2 = new produk("Faisal", "coding", "Erlangga", 1000000);
 
 
 // var_dump($produk1);
