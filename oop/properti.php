@@ -4,6 +4,7 @@ class produk{
     public $judul, $penulis, $penerbit, $harga;
 
     public function getlabel(){
+        //return"$this->judul, $this->penulis";
         return $this->judul . ', ' . $this-> penulis;
     }
 }
@@ -11,7 +12,7 @@ $produk1 = new produk();
 $produk1 -> judul = "Naruto";
 $produk1 -> penulis = "masashi kishimoto";
 
-$produk1 = new produk();
+$produk2 = new produk();
 $produk2 -> judul = "Uncharted";
 $produk2 -> penulis = "Agus";
 

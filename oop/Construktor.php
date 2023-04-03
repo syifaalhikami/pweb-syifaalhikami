@@ -2,8 +2,9 @@
 
 class produk{
     public $judul, $penulis, $penerbit, $harga;
-
-    public function __construct($judul, $penulis, $penerbit, $harga){
+    
+    //public function __constructor($judul = 'judul', $penulis = 'penulis', $harga = 0)
+    public function __construct($judul, $penulis, $penerbit, $harga = 0){
         //echo "hello";
         $this->judul = $judul;
         $this->penulis = $penulis;
