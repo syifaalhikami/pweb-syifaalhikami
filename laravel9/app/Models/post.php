@@ -2,41 +2,22 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-
-class post
+class Post extends Model
 {
-   private static $blog_posts = [
-        [
-            "title" => "judul post pertama",
-            "slug" => "Judul-Post-pertama",
-            "author" => "Syifa ay",
-            "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis deserunt facilis neque expedita dolor ea, corporis nihil in provident ratione accusantium alias laborum quas nulla repellat facere at suscipit voluptatem fuga aperiam! Mollitia laudantium magnam ipsam deserunt tenetur odit ipsum, dolor ut inventore voluptas reiciendis facere cumque repellendus labore, quibusdam eum ratione a nobis ullam architecto. Quam, minus quas esse, earum velit veritatis, exercitationem hic pariatur animi eveniet sit blanditiis aliquid sequi suscipit maxime fuga vitae voluptate? Qui, itaque at."
-        ],
-        [
-            "title" => "judul post Kedua",
-            "slug" => "Judul-Post-kedua",
-            "author" => " ayuy nih",
-            "body" => "Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                       Blanditiis deserunt facilis neque expedita dolor ea, corporis nihil in provident ratione accusantium alias laborum quas nulla repellat facere at suscipit voluptatem fuga aperiam! Mollitia laudantium magnam ipsam deserunt tenetur odit ipsum, dolor ut inventore voluptas reiciendis facere cumque repellendus labore, quibusdam eum ratione a nobis ullam architecto. Quam, minus quas esse, earum velit veritatis, exercitationem hic pariatur animi eveniet sit blanditiis aliquid sequi suscipit maxime fuga vitae voluptate? Qui, itaque at."
-        ],
-    ];
+    use HasFactory;
 
-    public static function all()
+    //protected $fillable = ['title', 'excerpt', 'body'];
+    protected $guarded = ['id'];
+
+    public function category()
     {
-        return collect(self::$blog_posts);
+        return $this->belongsTo(Category::class);
     }
-
-    public static function find($slug)
+    public function User()
     {
-        $posts = static::all();
-    //     $post = [];
-    // foreach($posts as $p) {
-    //    if($p["slug"] === $slug){
-    //         $post = $p;
-    //    }
-    // }
-    // return $post;
-    return $posts->firstWhere('slug', $slug);
+        return $this->belongsTo(User::class);
     }
 }
